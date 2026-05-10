@@ -1,0 +1,38 @@
+```yaml id="jlwmy4"
+name: Daily Career Ops Scan
+
+on:
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: '30 2 * * *'
+
+jobs:
+
+  scan-jobs:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Verify Node Version
+        run: node -v
+
+      - name: Verify NPM Version
+        run: npm -v
+
+      - name: Run Career-Ops Scan
+        run: node scan.mjs
+```
