@@ -1,21 +1,17 @@
-```yaml id="jlwmy4"
+```yaml id="jlwmu4"
 name: Daily Career Ops Scan
 
 on:
-
   workflow_dispatch:
 
   schedule:
     - cron: '30 2 * * *'
 
 jobs:
-
   scan-jobs:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
